@@ -899,7 +899,7 @@ function gerarPDFComercial(){
 
   var html='<div class="p-hdr"><div>'+logo+'<div class="p-ic-sub">Input Comercial · Documento Interno</div>'
     +'<div class="p-ic-proj">'+projeto+'</div>'
-    +'<div class="p-ic-date">Gerado em '+new Date().toLocaleDateString('pt-BR')+' · Briefing: '+briefing+'</div></div></div>'
+    +'<div class="p-ic-date">Briefing: '+briefing+'</div></div></div>'
     +'<div class="p-grid">'
     +'<div class="p-sec"><div class="p-sh">Escopos Selecionados</div><table class="p-tbl">'+escsHtml+'<tr class="sub"><td>Total de dias</td><td class="r">'+(dias%1?dias.toFixed(1):dias)+' dias</td></tr></table></div>'
     +'<div class="p-sec"><div class="p-sh">Simultâneos</div><table class="p-tbl">'
@@ -946,7 +946,7 @@ function gerarPDF(){
   }).join('');
 
   var html='<div class="p-hdr"><div>'+logo+'<div style="color:rgba(255,255,255,.3);font-size:9px;margin-top:6px">Projeção de Precificação · Documento Interno</div></div>'
-    +'<div class="p-hr">Cliente: <strong>'+cliente+'</strong><br>Data: '+new Date().toLocaleDateString('pt-BR')+'<br>Projetos em andamento: '+proj+'</div></div>'
+    +'<div class="p-hr">Cliente: <strong>'+cliente+'</strong><br>Projetos em andamento: '+proj+'</div></div>'
     +'<div class="p-grid">'
     +'<div class="p-sec"><div class="p-sh">Escopos Selecionados</div><table class="p-tbl">'+escHtml+'<tr class="sub"><td>Total de dias</td><td class="r">'+(dias%1?dias.toFixed(1):dias)+' dias</td></tr></table></div>'
     +'<div class="p-sec"><div class="p-sh">Oportunidade de Valor</div><table class="p-tbl">'+multHtml+'<tr class="sub"><td>Fator combinado</td><td class="r">'+fator.toFixed(3)+'×</td></tr></table></div>'
