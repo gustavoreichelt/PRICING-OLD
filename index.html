@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>J&H · Calculadora de Precificação 2026</title>
+<title>J&H · Calculadora de Precificação</title>
 <style>
 :root{--black:#0E0E0E;--dark:#1A1A1A;--mid:#2E2E2E;--gray:#555;--gl:#888;--border:#D4D4D4;--bg:#F2F2F2;--white:#FFF;--ffd:Georgia,'Times New Roman',serif;--ffm:'Courier New','Lucida Console',monospace}
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
@@ -1055,13 +1055,14 @@ document.querySelectorAll('#cliente,#override,#obs,#proj,#contra').forEach(funct
 </script>
 
 <style id="print-styles">
-@page{size:A4;margin:12mm}
+@page{size:A4;margin:0}
 @media screen{#print-target{display:none!important}}
 @media print{
-  html,body{background:#fff!important;margin:0!important;padding:0!important;height:auto!important;overflow:visible!important}
+  html,body{background:#fff!important;margin:0!important;padding:0!important;width:210mm!important;min-width:0!important;height:auto!important;overflow:visible!important}
   body > *:not(#print-target){display:none!important}
-  #print-target{display:block!important;position:static!important;width:auto!important;height:auto!important;overflow:visible!important;margin:0;padding:0;background:#fff;font-family:Arial,sans-serif;font-size:11px;color:#111}
+  #print-target{display:block!important;position:static!important;box-sizing:border-box!important;width:210mm!important;max-width:210mm!important;height:auto!important;overflow:visible!important;margin:0!important;padding:12mm!important;background:#fff;font-family:Arial,sans-serif;font-size:11px;color:#111}
   #print-target *{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  #print-target .p-grid{grid-template-columns:minmax(0,1fr) minmax(0,1fr)}
   .p-hdr,.p-sec,.p-res,.p-obs,.p-obsbox{break-inside:avoid;page-break-inside:avoid}
 }
 .p-hdr{background:#111;padding:14px 18px;margin-bottom:18px;display:flex;justify-content:space-between;align-items:flex-end}
