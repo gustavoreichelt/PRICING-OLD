@@ -1055,14 +1055,14 @@ document.querySelectorAll('#cliente,#override,#obs,#proj,#contra').forEach(funct
 </script>
 
 <style id="print-styles">
-@media print {
-  body > *:not(#print-target) { display: none !important; }
-  #print-target {
-    display: block !important;
-    position: fixed; top:0; left:0; right:0; bottom:0;
-    background:#fff; z-index:99999; padding:0; margin:0;
-    font-family:Arial,sans-serif; font-size:11px; color:#111;
-  }
+@page{size:A4;margin:12mm}
+@media screen{#print-target{display:none!important}}
+@media print{
+  html,body{background:#fff!important;margin:0!important;padding:0!important;height:auto!important;overflow:visible!important}
+  body > *:not(#print-target){display:none!important}
+  #print-target{display:block!important;position:static!important;width:auto!important;height:auto!important;overflow:visible!important;margin:0;padding:0;background:#fff;font-family:Arial,sans-serif;font-size:11px;color:#111}
+  #print-target *{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .p-hdr,.p-sec,.p-res,.p-obs,.p-obsbox{break-inside:avoid;page-break-inside:avoid}
 }
 .p-hdr{background:#111;padding:14px 18px;margin-bottom:18px;display:flex;justify-content:space-between;align-items:flex-end}
 .p-logo{height:30px;filter:invert(1) brightness(2)}
@@ -1096,8 +1096,7 @@ function doPrint(html) {
   var t = document.getElementById('print-target');
   t.innerHTML = html;
   t.style.display = 'block';
-  window.print();
-  setTimeout(function(){ t.style.display = 'none'; t.innerHTML = ''; }, 800);
+  setTimeout(function(){ window.print(); }, 100);
 }
 
 function getLogo() {
